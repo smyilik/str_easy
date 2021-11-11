@@ -2,30 +2,22 @@
 
 string itc_cmp_str(string str1, string str2, int num)
 {
-	string str = "";
-	long long len = itc_len(str1), len2 = itc_len(str2), j = -1;
-	if (num < 0) {
-		return "-1";
-	}
-	else if (num >= len) {
-		return str1;
-	}
-	for (int i = 0; i < len; i++) {
-		if (i == num) {
-			str += str2;
-			i += len2;
-			j = i;
-			break;
-		}
-		else {
-			str += str1[i];
-		}
-	}
-	if (j != -1) {
-		j -= len2;
-		for (j; j < len - len2; j++) {
-			str += str1[j];
-		}
-	}
-	return (str );
+    string str, str_;
+    long long len1 = itc_len(str1), len2 = itc_len(str2);
+    if ((len1 < num) || (num < 0)) {
+        return str1;
+    }
+    for (int i = 0; i < num; i++) {
+        str += str1[i];
+    }
+    for (int i = 0; i < len2; i++) {
+        str += str2[i];
+    }
+    for (int i = num; str1[i] != '\0'; i++) {
+        str += str1[i];
+    }
+    for (int i = 0; i < len1; i++) {
+        str_ += str[i];
+    }
+    return str_;
 }
