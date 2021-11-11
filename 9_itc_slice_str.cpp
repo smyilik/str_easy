@@ -2,6 +2,8 @@
 
 string itc_slice_str(string str, int start, int end)
 {
+	start -= 1;
+	end -= 1;
 	if ((start > end) || (start >= itc_len(str))) {
 		return str;
 	}
