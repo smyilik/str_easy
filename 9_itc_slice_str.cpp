@@ -5,7 +5,10 @@ string itc_slice_str(string str, int start, int end)
 	if ((start > end) || (start >= itc_len(str))) {
 		return str;
 	}
-	if (end >= itc_len(str)) {
+	else if (start < 0) {
+		return "-1";
+	}
+	else if (end >= itc_len(str)) {
 		end = itc_len(str);
 	}
 	string sndstr = "";
