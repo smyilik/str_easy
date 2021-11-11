@@ -2,25 +2,22 @@
 
 string itc_cmp_str(string str1, string str2, int num)
 {
-	if ((num < 0) || (num > itc_len(str1) - 1)) {
+	string str = "";
+	long long len = itc_len(str1);
+	if (num < 0) {
 		return "-1";
 	}
-	else if (str2 == "") {
-		return (str1);
+	else if (num >= itc_len(str1)) {
+		return str1;
 	}
-	string otv = "";
-	long long i = 0, st2 = itc_len(str2), z = 0, st1 = itc_len(str1);
-	while (i < num) {
-		otv += str1[i];
-		i++;
+	for (int i = 0; i < len; i++) {
+		if (i == num) {
+			str += str2;
+			i += itc_len(str2);
+		}
+		else {
+			str += str1[i];
+		}
 	}
-	while (z < st2) {
-		otv += str2[z];
-		z++;
-	}
-	while (i < st1) {
-		otv += str1[i];
-		i++;
-	}
-	return (otv);
+	return (str );
 }
